@@ -312,6 +312,11 @@ position = Vector2(-640, 320)
 rotation = 1.57079
 texture = ExtResource("6_c3iap")
 
+[node name="OffroadLine18" type="Sprite2D" parent="OffroadLine_grp"]
+position = Vector2(-960, 320)
+rotation = 1.57079
+texture = ExtResource("6_c3iap")
+
 [node name="OffroadLine5" type="Sprite2D" parent="OffroadLine_grp"]
 position = Vector2(960, -640)
 rotation = 1.57079
