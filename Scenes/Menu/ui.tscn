@@ -1,0 +1,136 @@
+[gd_scene load_steps=7 format=3 uid="uid://dsjyju6r77bim"]
+
+[ext_resource type="Script" path="res://SRC/ui/ui.gd" id="1_gdufq"]
+[ext_resource type="FontFile" uid="uid://fwbfbpyutg3x" path="res://Assets/Font/the-godfather.regular.ttf" id="2_l65f8"]
+[ext_resource type="FontFile" uid="uid://cb8htn1un8pj6" path="res://Assets/Font/cmuntt.ttf" id="3_enrmc"]
+
+[sub_resource type="Animation" id="Animation_qpqlo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(674.5, 1100)]
+}
+
+[sub_resource type="Animation" id="Animation_5cfa7"]
+resource_name = "slide_quest_notif"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.8, 2.9, 3.8, 5, 6, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(674.5, 1100), Vector2(674.5, 850), Vector2(674.5, 850), Vector2(674.5, 850), Vector2(674.5, 850), Vector2(674.5, 850), Vector2(674.5, 850), Vector2(674.5, 1100)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dm67i"]
+_data = {
+"RESET": SubResource("Animation_qpqlo"),
+"slide_quest_notif": SubResource("Animation_5cfa7")
+}
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_gdufq")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -219.0
+offset_bottom = 75.0
+grow_horizontal = 0
+text = "ZQSD = mouvement
+E = intéragire
+J = afficher la quete en cours"
+
+[node name="Quest" type="Node" parent="."]
+
+[node name="AnimationPlayer_slide" type="AnimationPlayer" parent="Quest"]
+libraries = {
+"": SubResource("AnimationLibrary_dm67i")
+}
+
+[node name="ColorRect" type="ColorRect" parent="Quest"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 674.5
+offset_top = 1100.0
+offset_right = 1245.5
+offset_bottom = 1267.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 0.733333)
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Quest/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_bottom = 0.000610352
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Label_titre_name" type="Label" parent="Quest/ColorRect/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.443137, 0.0823529, 0.0784314, 1)
+theme_override_fonts/font = ExtResource("2_l65f8")
+theme_override_font_sizes/font_size = 50
+text = "Votre objectif :"
+
+[node name="Label_quest_name" type="Label" parent="Quest/ColorRect/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_enrmc")
+theme_override_font_sizes/font_size = 22
+text = "Un erreur c'est produite"
+
+[node name="CheatBox" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -344.0
+offset_top = -215.0
+offset_right = 353.0
+offset_bottom = 242.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.537255)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CheatBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="debug_quest" type="Label" parent="CheatBox/VBoxContainer"]
+layout_mode = 2
+text = "TEST"
+
+[node name="Label_response" type="Label" parent="CheatBox/VBoxContainer"]
+layout_mode = 2
+
+[node name="LineEdit_commandeline" type="LineEdit" parent="CheatBox/VBoxContainer"]
+layout_mode = 2
+
+[connection signal="text_submitted" from="CheatBox/VBoxContainer/LineEdit_commandeline" to="." method="_on_line_edit_commandeline_text_submitted"]

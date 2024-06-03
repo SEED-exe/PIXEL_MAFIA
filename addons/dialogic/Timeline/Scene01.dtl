@@ -1,0 +1,8 @@
+Narrateur: En ouvrant les yeux vous vous souvenez que vous n’êtes pas chez vous, vous êtes dans une chambre du "The Grand Riviera Hôtel", la 12 pour être précis.
+Narrateur: Vous êtes arrivez hier, tard dans la nuit. C’est ce matin que vous découvrez la chambre.
+Narrateur: Riviera Hôtel est connus pour être l’un des endroits chics de...
+[text_input text="Entrée le nom de la ville" var="city_name"]
+Narrateur: de {city_name}, alors que vous avez pris la chambre la moins chère, vous faites un tour sur vous-même, pour vous diriger vers le grand miroir vertical posé aux sols.
+Narrateur: En vous habillant vous entendez au rez-de-chaussée une dispute éclater, la voix d’une femme qui crie sur ce qui semble être la voix de Vincent Bianchi, votre ami d’enfance.
+Narrateur: Vinnie vous a fait venir ici a {city_name} pour un boulot qu’il décrit comme "fait pour vous", vous descendez le rejoindre.
+[signal arg="exit_scene_1"]

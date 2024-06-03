@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="DialogicGlossary" load_steps=2 format=3 uid="uid://cr1mxwnu4xo7m"]
+
+[ext_resource type="Script" path="res://addons/dialogic/Modules/Glossary/glossary_resource.gd" id="1_epgtt"]
+
+[resource]
+script = ExtResource("1_epgtt")
+entries = {
+"Capo": {
+"alternatives": ["Caporegime"],
+"color": Color(1, 1, 1, 1),
+"extra": "",
+"name": "Capo",
+"text": "Un caporegime, souvent abrégé en \"capo\", est un membre de haut rang au sein de la mafia. Le terme \"caporegime\" vient de l'italien, signifiant \"chef de groupe\" ou \"chef d'équipe\". Un caporegime est responsable de superviser un groupe de soldats ou d'associés dans une famille criminelle, souvent entre cinq et dix membres. Il agit comme un chef de section, assurant que les ordres du parrain ou du chef de la famille sont exécutés efficacement.",
+"title": "Caporegime"
+},
+"Caporegime": "Capo",
+"Caruso": "Les Frères Caruso",
+"Famille Marino": {
+"alternatives": ["Les Marino"],
+"case_sensitive": true,
+"color": Color(0.298039, 0.596078, 0.27451, 1),
+"extra": "Don Giovanni \"Big Joe\" Marino",
+"name": "Famille Marino",
+"text": "La famille Marino est une vieille famille implantée en ville depuis plus de 60 ans, avant même la Seconde Guerre mondiale. Ils ont contribué à la reconstruction de la ville sur le plan économique. Leurs principaux actifs sont les prêts usuraires et l'extorsion de protection infligés aux commerçants de la ville. Malgré cela, ils sont plutôt appréciés pour leur réelle efficacité lorsque d'autres gangsters, voyous ou familles viennent semer le trouble. Ils soutiennent des associations caritatives catholiques et sont plus ou moins impliqués dans la politique de la ville, respectant religieusement la loi de l'omerta.",
+"title": "Famille Marino"
+},
+"Hôtel riviera": "The Grand Riviera Hôtel",
+"Les Frères Caruso": {
+"alternatives": ["Caruso"],
+"case_sensitive": true,
+"extra": "Neutre",
+"name": "Les Frères Caruso",
+"text": "\"En vous approchant vous apercevez une porte entre ouverte menant à un bureau, c’est les Frères Caruso, vous les connaissez par ce qu’ils sont réputés pour être contre toute les familles mafieuse. Ils arrivent à ce défendre grâce a une seul chose que les autres familles n’ont pas, il ont la main mise sur 70% de l’alcool de contrebande qui rentre, donc depuis la génération de leur père The Grand Riviera Hôtel et devenus un lieux neutre ou personne a le droit de tuer, de voler, d’extorquer, ou de menacer sous peine de voir leur alcool disparaitre ou pire, de monter de prix.\"",
+"title": "Les Frères Caruso"
+},
+"Les Marino": "Famille Marino",
+"The Grand Riviera Hôtel": {
+"alternatives": ["Hôtel riviera"],
+"name": "The Grand Riviera Hôtel",
+"text": "The Grand Riviera Hôtel est un grand hôtel chic tenu par les frères Caruso. Enzo et Gianni Caruso, tous deux d'origine italienne, ont hérité de l'établissement de leur père. Ils ont décidé de le gérer de manière neutre, refusant de s'impliquer dans les affaires de la pègre pour protéger leurs intérêts.",
+"title": "The Grand Riviera Hôtel"
+}
+}
+enabled = true
+_translation_id = ""
+_translation_keys = {}

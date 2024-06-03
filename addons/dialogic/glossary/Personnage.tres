@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="DialogicGlossary" load_steps=2 format=3 uid="uid://csfepnh6nmbxl"]
+
+[ext_resource type="Script" path="res://addons/dialogic/Modules/Glossary/glossary_resource.gd" id="1_ssww8"]
+
+[resource]
+script = ExtResource("1_ssww8")
+entries = {
+"Antonio Romano": {
+"alternatives": ["Tony"],
+"color": Color(0.321569, 0.588235, 0.188235, 1),
+"extra": "Famille Marino",
+"name": "Antonio Romano",
+"text": "Antonio Romano est un homme assez grand avec un carrure de boxeur. Il est l'homme que Vinnie veux vous rencarder pour un jobs.",
+"title": "Antonio \"Tony\" Romano"
+},
+"Gianna": {
+"alternatives": ["Gianna Alvarez"],
+"color": Color(0.756863, 0.901961, 0.690196, 1),
+"name": "Gianna",
+"text": "Elle rencontre Vinnie lorsqu’elle essaie de négocier avec les Marino pour assurer la protection de son bar. Vinnie, s'étant pris d'affection pour elle, lui promet de prendre soin de son commerce en échange de l'héberger dans l'appartement à l'étage. En acceptant, elle évite de devenir l'esclave de la famille Marino.",
+"title": "Gianna Alvarez"
+},
+"Gianna Alvarez": "Gianna",
+"Giovanni \"Big Joe\" Marino": {
+"alternatives": ["Giovanni Marino"],
+"color": Color(0.286275, 0.639216, 0.254902, 1),
+"name": "Giovanni \"Big Joe\" Marino",
+"text": "Un homme imposant et respecté, connu pour sa loyauté envers sa famille et sa communauté. Il est réputé pour sa sagesse et sa capacité à maintenir l'ordre dans les rangs.",
+"title": "Giovanni Marino"
+},
+"Giovanni Marino": "Giovanni \"Big Joe\" Marino",
+"Tony": "Antonio Romano",
+"Vincent Bianchi": "Vinnie",
+"Vinnie": {
+"alternatives": ["Vincent Bianchi"],
+"color": Color(0.643137, 0.894118, 0.658824, 1),
+"name": "Vinnie",
+"text": "Background :
+Originaire de Staten Island, Vinnie a grandi dans un orphelinat où la présence des gangsters était palpable. Issu d'une famille modeste, il a été attiré dès son plus jeune âge par le monde de la criminalité organisée, mais il a rapidement appris qu'il devait en rester éloigné.
+",
+"title": "Vincent \"Vinnie\" Bianchi"
+}
+}
+enabled = true
+_translation_id = ""
+_translation_keys = {}

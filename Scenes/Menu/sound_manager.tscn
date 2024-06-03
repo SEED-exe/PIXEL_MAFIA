@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://csyb8rw7hk433"]
+
+[ext_resource type="Script" path="res://SRC/sound_manager.gd" id="1_e6lel"]
+
+[node name="SoundManager" type="Node"]
+script = ExtResource("1_e6lel")
+
+[node name="AudioStreamPlayer_musique" type="AudioStreamPlayer" parent="."]
+volume_db = -35.0

@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://0847wf6r5v84"]
+
+[ext_resource type="Script" path="res://SRC/Marqueur/Quest_marqeur.gd" id="1_048ug"]
+[ext_resource type="Texture2D" uid="uid://vvi88k354yup" path="res://Assets/Sprites/ui/marqueur.png" id="2_wsg3o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lkf7o"]
+radius = 17.0
+
+[sub_resource type="Animation" id="Animation_14r61"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_k71fa"]
+resource_name = "idle"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8sp0i"]
+_data = {
+"RESET": SubResource("Animation_14r61"),
+"idle": SubResource("Animation_k71fa")
+}
+
+[node name="Quest_marqeur" type="Area2D" groups=["marqueur"]]
+script = ExtResource("1_048ug")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lkf7o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_wsg3o")
+vframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8sp0i")
+}
+speed_scale = 0.6
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,196 @@
+[gd_scene load_steps=18 format=3 uid="uid://do4x8384jue0f"]
+
+[ext_resource type="Script" path="res://SRC/joueur/player.gd" id="1_qh8vs"]
+[ext_resource type="Texture2D" uid="uid://dkjfibm7nl88n" path="res://Assets/Sprites/player/bas.png" id="2_aapp5"]
+[ext_resource type="Texture2D" uid="uid://08r3h047dyay" path="res://Assets/Sprites/player/haut.png" id="3_5ac7q"]
+[ext_resource type="Texture2D" uid="uid://duq4ocuhasolc" path="res://Assets/Sprites/player/cheveux.png" id="4_pds0x"]
+[ext_resource type="Texture2D" uid="uid://cg2co1w0ddk0e" path="res://Assets/Sprites/player/chapeau.png" id="5_778ex"]
+[ext_resource type="Texture2D" uid="uid://bdamc6xhytlvn" path="res://Assets/Sprites/player/walk.png" id="6_jnj4p"]
+[ext_resource type="PackedScene" uid="uid://dsjyju6r77bim" path="res://Scenes/Menu/ui.tscn" id="7_vt7ti"]
+[ext_resource type="Texture2D" uid="uid://bajpq40q21f1n" path="res://Assets/Sprites/player/arrow player.png" id="8_15lfp"]
+
+[sub_resource type="Animation" id="Animation_edls7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_grp/Walk:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_dvni3"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_grp/Walk:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_hqtch"]
+resource_name = "walk"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_grp/Walk:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a3foa"]
+_data = {
+"RESET": SubResource("Animation_edls7"),
+"idle": SubResource("Animation_dvni3"),
+"walk": SubResource("Animation_hqtch")
+}
+
+[sub_resource type="Animation" id="Animation_wygh4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ArrowPlayer:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ArrowPlayer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_t3vfy"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ArrowPlayer:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2, 2), Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ArrowPlayer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_qe4jf"]
+resource_name = "idle_arrow"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ArrowPlayer:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.6, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.3, 1.3), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nrqf4"]
+_data = {
+"RESET": SubResource("Animation_wygh4"),
+"fade": SubResource("Animation_t3vfy"),
+"idle_arrow": SubResource("Animation_qe4jf")
+}
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_r3l08"]
+polygon = PackedVector2Array(-8, -15, -8, 15, -2, 19, 2, 19, 4, 16, 4, -16, 2, -19, -2, -19)
+
+[node name="player" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_qh8vs")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.8, 1.8)
+process_callback = 0
+position_smoothing_enabled = true
+
+[node name="Animation_grp" type="Node2D" parent="."]
+
+[node name="AnimationPlayer_movment" type="AnimationPlayer" parent="Animation_grp"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_a3foa")
+}
+speed_scale = 0.8
+
+[node name="AnimationPlayer_arrow" type="AnimationPlayer" parent="Animation_grp"]
+libraries = {
+"": SubResource("AnimationLibrary_nrqf4")
+}
+
+[node name="Sprite_grp" type="Node2D" parent="."]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite_grp"]
+occluder = SubResource("OccluderPolygon2D_r3l08")
+
+[node name="bas" type="Sprite2D" parent="Sprite_grp"]
+texture = ExtResource("2_aapp5")
+
+[node name="haut" type="Sprite2D" parent="Sprite_grp"]
+texture = ExtResource("3_5ac7q")
+
+[node name="cheveux" type="Sprite2D" parent="Sprite_grp"]
+texture = ExtResource("4_pds0x")
+
+[node name="chapeau" type="Sprite2D" parent="Sprite_grp"]
+texture = ExtResource("5_778ex")
+
+[node name="Walk" type="Sprite2D" parent="Sprite_grp"]
+texture = ExtResource("6_jnj4p")
+vframes = 5
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-8, -15, -2, -19, 2, -19, 4, -16, 4, 16, 2, 19, -2, 19, -8, 15)
+
+[node name="UI" parent="." instance=ExtResource("7_vt7ti")]
+
+[node name="ArrowPlayer" type="Sprite2D" parent="."]
+texture = ExtResource("8_15lfp")

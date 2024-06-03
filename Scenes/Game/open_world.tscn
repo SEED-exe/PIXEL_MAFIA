@@ -1,0 +1,349 @@
+[gd_scene load_steps=11 format=3 uid="uid://kfhtn3b1nn0y"]
+
+[ext_resource type="Texture2D" uid="uid://dqobdki4qsurq" path="res://Assets/Sprites/Tile/offroad/offroad.png" id="1_0g8we"]
+[ext_resource type="Texture2D" uid="uid://u6rgl0kpbwfa" path="res://Assets/Sprites/Tile/routecoin.png" id="1_cu6xn"]
+[ext_resource type="Texture2D" uid="uid://dgsrhj6ypvnbq" path="res://Assets/Sprites/Tile/route.png" id="1_qlwch"]
+[ext_resource type="Texture2D" uid="uid://b4r0rvvxj47jl" path="res://Assets/Sprites/Tile/routeT.png" id="1_twsct"]
+[ext_resource type="PackedScene" uid="uid://do4x8384jue0f" path="res://Scenes/Game/Joueur/player.tscn" id="2_8gijq"]
+[ext_resource type="Texture2D" uid="uid://ckncfkc53hq1t" path="res://Assets/Sprites/Tile/offroad/offroad_line_corner_2.png" id="5_88fhv"]
+[ext_resource type="Texture2D" uid="uid://s7rgcnly0ynx" path="res://Assets/Sprites/Tile/offroad/offroad_line_corner.png" id="5_j5vnp"]
+[ext_resource type="Texture2D" uid="uid://b5rt6xa5ugl6o" path="res://Assets/Sprites/maps/ext/casino ext.png" id="5_r2s2w"]
+[ext_resource type="Texture2D" uid="uid://3nu17l1osfdp" path="res://Assets/Sprites/Tile/offroad/offroad_line.png" id="6_c3iap"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dvb3w"]
+size = Vector2(768, 1088)
+
+[node name="Open_world" type="Node2D"]
+
+[node name="offroad_grp" type="Node2D" parent="."]
+
+[node name="Offroad13" type="Sprite2D" parent="offroad_grp"]
+position = Vector2(-1120, 480)
+texture = ExtResource("1_0g8we")
+
+[node name="Offroad" type="Sprite2D" parent="offroad_grp"]
+position = Vector2(-160, 480)
+texture = ExtResource("1_0g8we")
+
+[node name="Offroad29" type="Sprite2D" parent="offroad_grp"]
+position = Vector2(800, 160)
+texture = ExtResource("1_0g8we")
+
+[node name="Offroad32" type="Sprite2D" parent="offroad_grp"]
+position = Vector2(480, 160)
+texture = ExtResource("1_0g8we")
+
+[node name="Offroad30" type="Sprite2D" parent="offroad_grp"]
+position = Vector2(1120, 160)
+texture = ExtResource("1_0g8we")
+
+[node name="Offroad31" type="Sprite2D" parent="offroad_grp"]
+position = Vector2(1440, 160)
+texture = ExtResource("1_0g8we")
+
+[node name="Offroad2" type="Sprite2D" parent="offroad_grp"]
+position = Vector2(-480, 480)
+texture = ExtResource("1_0g8we")
+
+[node name="Offroad14" type="Sprite2D" parent="offroad_grp"]
+position = Vector2(-1120, 160)
+texture = ExtResource("1_0g8we")
+
+[node name="Offroad15" type="Sprite2D" parent="offroad_grp"]
+position = Vector2(-1120, -160)
+texture = ExtResource("1_0g8we")
+
+[node name="Offroad16" type="Sprite2D" parent="offroad_grp"]
+position = Vector2(-1120, -480)
+texture = ExtResource("1_0g8we")
+
+[node name="Offroad17" type="Sprite2D" parent="offroad_grp"]
+position = Vector2(-1120, -800)
+texture = ExtResource("1_0g8we")
+
+[node name="Offroad18" type="Sprite2D" parent="offroad_grp"]
+position = Vector2(-800, -800)
+texture = ExtResource("1_0g8we")
+
+[node name="Offroad19" type="Sprite2D" parent="offroad_grp"]
+position = Vector2(-480, -800)
+texture = ExtResource("1_0g8we")
+
+[node name="Offroad20" type="Sprite2D" parent="offroad_grp"]
+position = Vector2(-160, -800)
+texture = ExtResource("1_0g8we")
+
+[node name="Offroad21" type="Sprite2D" parent="offroad_grp"]
+position = Vector2(160, -800)
+texture = ExtResource("1_0g8we")
+
+[node name="Offroad3" type="Sprite2D" parent="offroad_grp"]
+position = Vector2(-800, 480)
+texture = ExtResource("1_0g8we")
+
+[node name="Offroad4" type="Sprite2D" parent="offroad_grp"]
+position = Vector2(-160, 160)
+texture = ExtResource("1_0g8we")
+
+[node name="Offroad6" type="Sprite2D" parent="offroad_grp"]
+position = Vector2(-800, 160)
+texture = ExtResource("1_0g8we")
+
+[node name="Offroad7" type="Sprite2D" parent="offroad_grp"]
+position = Vector2(-160, -160)
+texture = ExtResource("1_0g8we")
+
+[node name="Offroad8" type="Sprite2D" parent="offroad_grp"]
+position = Vector2(-480, -160)
+texture = ExtResource("1_0g8we")
+
+[node name="Offroad9" type="Sprite2D" parent="offroad_grp"]
+position = Vector2(-800, -160)
+texture = ExtResource("1_0g8we")
+
+[node name="Offroad11" type="Sprite2D" parent="offroad_grp"]
+position = Vector2(-480, -480)
+texture = ExtResource("1_0g8we")
+
+[node name="Offroad12" type="Sprite2D" parent="offroad_grp"]
+position = Vector2(-800, -480)
+texture = ExtResource("1_0g8we")
+
+[node name="Offroad5" type="Sprite2D" parent="offroad_grp"]
+position = Vector2(-160, -480)
+texture = ExtResource("1_0g8we")
+
+[node name="Offroad10" type="Sprite2D" parent="offroad_grp"]
+position = Vector2(160, -480)
+texture = ExtResource("1_0g8we")
+
+[node name="Offroad22" type="Sprite2D" parent="offroad_grp"]
+position = Vector2(480, -480)
+texture = ExtResource("1_0g8we")
+
+[node name="Offroad23" type="Sprite2D" parent="offroad_grp"]
+position = Vector2(480, -800)
+texture = ExtResource("1_0g8we")
+
+[node name="Offroad24" type="Sprite2D" parent="offroad_grp"]
+position = Vector2(800, -480)
+texture = ExtResource("1_0g8we")
+
+[node name="Offroad25" type="Sprite2D" parent="offroad_grp"]
+position = Vector2(800, -800)
+texture = ExtResource("1_0g8we")
+
+[node name="Offroad26" type="Sprite2D" parent="offroad_grp"]
+position = Vector2(1120, -480)
+texture = ExtResource("1_0g8we")
+
+[node name="Offroad28" type="Sprite2D" parent="offroad_grp"]
+position = Vector2(1440, -480)
+texture = ExtResource("1_0g8we")
+
+[node name="Offroad34" type="Sprite2D" parent="offroad_grp"]
+position = Vector2(1760, -480)
+texture = ExtResource("1_0g8we")
+
+[node name="Offroad33" type="Sprite2D" parent="offroad_grp"]
+position = Vector2(1440, -800)
+texture = ExtResource("1_0g8we")
+
+[node name="Offroad35" type="Sprite2D" parent="offroad_grp"]
+position = Vector2(1760, -800)
+texture = ExtResource("1_0g8we")
+
+[node name="Offroad27" type="Sprite2D" parent="offroad_grp"]
+position = Vector2(1120, -800)
+texture = ExtResource("1_0g8we")
+
+[node name="Route_grp" type="Node2D" parent="."]
+
+[node name="RouteT" type="Sprite2D" parent="Route_grp"]
+position = Vector2(160, 480)
+texture = ExtResource("1_twsct")
+
+[node name="Routecoin" type="Sprite2D" parent="Route_grp"]
+position = Vector2(160, -160)
+texture = ExtResource("1_cu6xn")
+
+[node name="Routecoin2" type="Sprite2D" parent="Route_grp"]
+position = Vector2(1760, -160)
+rotation = 1.57079
+texture = ExtResource("1_cu6xn")
+
+[node name="Routecoin3" type="Sprite2D" parent="Route_grp"]
+position = Vector2(1760, 480)
+rotation = 3.14159
+texture = ExtResource("1_cu6xn")
+
+[node name="Route" type="Sprite2D" parent="Route_grp"]
+position = Vector2(160, 160)
+texture = ExtResource("1_qlwch")
+
+[node name="Route8" type="Sprite2D" parent="Route_grp"]
+position = Vector2(160, 800)
+texture = ExtResource("1_qlwch")
+
+[node name="Route9" type="Sprite2D" parent="Route_grp"]
+position = Vector2(160, 1120)
+texture = ExtResource("1_qlwch")
+
+[node name="Route2" type="Sprite2D" parent="Route_grp"]
+position = Vector2(480, -160)
+rotation = 1.5708
+texture = ExtResource("1_qlwch")
+
+[node name="Route3" type="Sprite2D" parent="Route_grp"]
+position = Vector2(480, 480)
+rotation = 1.5708
+texture = ExtResource("1_qlwch")
+
+[node name="Route4" type="Sprite2D" parent="Route_grp"]
+position = Vector2(800, -160)
+rotation = 1.5708
+texture = ExtResource("1_qlwch")
+
+[node name="Route5" type="Sprite2D" parent="Route_grp"]
+position = Vector2(800, 480)
+rotation = 1.5708
+texture = ExtResource("1_qlwch")
+
+[node name="Route6" type="Sprite2D" parent="Route_grp"]
+position = Vector2(1120, -160)
+rotation = 1.5708
+texture = ExtResource("1_qlwch")
+
+[node name="Route10" type="Sprite2D" parent="Route_grp"]
+position = Vector2(1440, -160)
+rotation = 1.5708
+texture = ExtResource("1_qlwch")
+
+[node name="Route7" type="Sprite2D" parent="Route_grp"]
+position = Vector2(1120, 480)
+rotation = 1.5708
+texture = ExtResource("1_qlwch")
+
+[node name="Route11" type="Sprite2D" parent="Route_grp"]
+position = Vector2(1440, 480)
+rotation = 1.5708
+texture = ExtResource("1_qlwch")
+
+[node name="Route12" type="Sprite2D" parent="Route_grp"]
+position = Vector2(1760, 160)
+texture = ExtResource("1_qlwch")
+
+[node name="OffroadLine_grp" type="Node2D" parent="."]
+position = Vector2(-160, 160)
+
+[node name="OffroadLineCorner2" type="Sprite2D" parent="OffroadLine_grp"]
+position = Vector2(0, -640)
+texture = ExtResource("5_88fhv")
+
+[node name="OffroadLineCorner" type="Sprite2D" parent="OffroadLine_grp"]
+position = Vector2(0, 320)
+texture = ExtResource("5_j5vnp")
+
+[node name="OffroadLineCorner3" type="Sprite2D" parent="OffroadLine_grp"]
+position = Vector2(640, 0)
+texture = ExtResource("5_j5vnp")
+flip_h = true
+
+[node name="OffroadLineCorner4" type="Sprite2D" parent="OffroadLine_grp"]
+position = Vector2(1600, 0)
+rotation = -1.57079
+texture = ExtResource("5_j5vnp")
+flip_h = true
+
+[node name="OffroadLine" type="Sprite2D" parent="OffroadLine_grp"]
+texture = ExtResource("6_c3iap")
+
+[node name="OffroadLine3" type="Sprite2D" parent="OffroadLine_grp"]
+position = Vector2(320, -640)
+rotation = 1.57079
+texture = ExtResource("6_c3iap")
+
+[node name="OffroadLine4" type="Sprite2D" parent="OffroadLine_grp"]
+position = Vector2(640, -640)
+rotation = 1.57079
+texture = ExtResource("6_c3iap")
+
+[node name="OffroadLine7" type="Sprite2D" parent="OffroadLine_grp"]
+position = Vector2(640, 0)
+rotation = 1.57079
+texture = ExtResource("6_c3iap")
+flip_h = true
+
+[node name="OffroadLine8" type="Sprite2D" parent="OffroadLine_grp"]
+position = Vector2(960, 0)
+rotation = 1.57079
+texture = ExtResource("6_c3iap")
+flip_h = true
+
+[node name="OffroadLine9" type="Sprite2D" parent="OffroadLine_grp"]
+position = Vector2(1280, 0.000350952)
+rotation = 1.57079
+texture = ExtResource("6_c3iap")
+flip_h = true
+
+[node name="OffroadLine10" type="Sprite2D" parent="OffroadLine_grp"]
+position = Vector2(1600, 0.000350952)
+rotation = 1.57079
+texture = ExtResource("6_c3iap")
+flip_h = true
+
+[node name="OffroadLine11" type="Sprite2D" parent="OffroadLine_grp"]
+position = Vector2(1280, 0)
+rotation = 1.57079
+texture = ExtResource("6_c3iap")
+
+[node name="OffroadLine13" type="Sprite2D" parent="OffroadLine_grp"]
+position = Vector2(960, 0)
+rotation = 1.57079
+texture = ExtResource("6_c3iap")
+
+[node name="OffroadLine14" type="Sprite2D" parent="OffroadLine_grp"]
+position = Vector2(-320, 320)
+rotation = 1.57079
+texture = ExtResource("6_c3iap")
+
+[node name="OffroadLine15" type="Sprite2D" parent="OffroadLine_grp"]
+position = Vector2(-640, 320)
+rotation = 1.57079
+texture = ExtResource("6_c3iap")
+
+[node name="OffroadLine5" type="Sprite2D" parent="OffroadLine_grp"]
+position = Vector2(960, -640)
+rotation = 1.57079
+texture = ExtResource("6_c3iap")
+
+[node name="OffroadLine6" type="Sprite2D" parent="OffroadLine_grp"]
+position = Vector2(1280, -640)
+rotation = 1.57079
+texture = ExtResource("6_c3iap")
+
+[node name="OffroadLine16" type="Sprite2D" parent="OffroadLine_grp"]
+position = Vector2(1600, -640)
+rotation = 1.57079
+texture = ExtResource("6_c3iap")
+
+[node name="OffroadLine17" type="Sprite2D" parent="OffroadLine_grp"]
+position = Vector2(1920, -640)
+rotation = 1.57079
+texture = ExtResource("6_c3iap")
+
+[node name="OffroadLine2" type="Sprite2D" parent="OffroadLine_grp"]
+position = Vector2(0, -320)
+texture = ExtResource("6_c3iap")
+
+[node name="player" parent="." instance=ExtResource("2_8gijq")]
+position = Vector2(64, 32)
+
+[node name="TGRH" type="StaticBody2D" parent="."]
+position = Vector2(-704, -224)
+
+[node name="CasinoExt" type="Sprite2D" parent="TGRH"]
+texture = ExtResource("5_r2s2w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TGRH"]
+shape = SubResource("RectangleShape2D_dvb3w")

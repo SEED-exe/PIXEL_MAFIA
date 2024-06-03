@@ -1,0 +1,248 @@
+[gd_scene load_steps=18 format=3 uid="uid://br6avg61rps01"]
+
+[ext_resource type="Texture2D" uid="uid://cmfneyw5gasch" path="res://Assets/Sprites/maps/chambre 12.png" id="1_46bti"]
+[ext_resource type="Script" path="res://SRC/map/chambre_12.gd" id="1_j74f7"]
+[ext_resource type="Texture2D" uid="uid://bjuyu7o81wust" path="res://Assets/Sprites/Light/light_point.png" id="1_loaid"]
+[ext_resource type="Texture2D" uid="uid://bgpxlf7k4c054" path="res://Assets/Sprites/Light/light_windows.png" id="3_518sa"]
+[ext_resource type="PackedScene" uid="uid://do4x8384jue0f" path="res://Scenes/Game/Joueur/player.tscn" id="4_v1d0a"]
+[ext_resource type="PackedScene" uid="uid://ch08guqgl2tiq" path="res://Scenes/Game/inter/inter.tscn" id="5_tywyi"]
+[ext_resource type="PackedScene" uid="uid://13d3ij5ixob" path="res://Scenes/Game/changeur de scene/change_scene.tscn" id="6_ic550"]
+[ext_resource type="Script" path="res://SRC/inter/salle principal.gd" id="6_ue1c4"]
+
+[sub_resource type="Environment" id="Environment_72gc5"]
+background_mode = 3
+glow_enabled = true
+glow_blend_mode = 0
+
+[sub_resource type="Animation" id="Animation_rik45"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5rldk"]
+resource_name = "fade"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dvixs"]
+_data = {
+"RESET": SubResource("Animation_rik45"),
+"fade": SubResource("Animation_5rldk")
+}
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_wtcex"]
+polygon = PackedVector2Array(-192, 144, -192, -256, 192, -256, 192, 144, -192, 144, -180, 133, 181, 133, 181, -246, -179, -246, -180, 133)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6yuvt"]
+size = Vector2(78, 114)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7b73f"]
+size = Vector2(24, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_so1gt"]
+size = Vector2(11, 66)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_b6xq4"]
+polygon = PackedVector2Array(11, -93, 11, -118, 192, -118, 192, 144, 11, 144, 11, 67, 22, 67, 22, 133, 181, 133, 181, -10, 22, -10, 22, 16, 11, 16, 11, -41, 22, -41, 22, -21, 181, -21, 181, -107, 22, -107, 22, -93)
+
+[node name="Chambre 12" type="Node2D"]
+script = ExtResource("1_j74f7")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_72gc5")
+
+[node name="bg" type="ColorRect" parent="."]
+offset_left = -1374.0
+offset_top = -1042.0
+offset_right = 1731.0
+offset_bottom = 1235.0
+color = Color(0.0627451, 0.0392157, 0, 1)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.54902, 0.709804, 0.819608, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+libraries = {
+"": SubResource("AnimationLibrary_dvixs")
+}
+
+[node name="inter3" parent="." instance=ExtResource("5_tywyi")]
+position = Vector2(-172, -237)
+light_path = NodePath("../Light_grp/PointLight2D_lamp")
+player_path = NodePath("../player")
+
+[node name="chambre_12" type="StaticBody2D" parent="."]
+
+[node name="sprite_chambre12" type="Sprite2D" parent="chambre_12"]
+texture = ExtResource("1_46bti")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="chambre_12"]
+polygon = PackedVector2Array(-180, -11, -180, -246, 181, -246, 181, 133, -180, 133, -192, 144, 192, 144, 192, -256, -192, -256, -192, 144, -180, 133)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="chambre_12"]
+polygon = PackedVector2Array(22, -93, 22, -107, 181, -107, 181, -118, 11, -118, 11, -93)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="chambre_12"]
+position = Vector2(0, 97)
+polygon = PackedVector2Array(11, -81, 22, -81, 22, -107, 181, -107, 181, -118, 22, -118, 21, -138, 11, -138)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="chambre_12"]
+occluder = SubResource("OccluderPolygon2D_wtcex")
+occluder_light_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chambre_12"]
+position = Vector2(-96, -189)
+shape = SubResource("RectangleShape2D_6yuvt")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="chambre_12"]
+position = Vector2(-168, -234.5)
+shape = SubResource("RectangleShape2D_7b73f")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="chambre_12"]
+position = Vector2(16.5, 100)
+shape = SubResource("RectangleShape2D_so1gt")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="chambre_12"]
+occluder = SubResource("OccluderPolygon2D_b6xq4")
+occluder_light_mask = 3
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="inter" parent="Node2D" instance=ExtResource("5_tywyi")]
+position = Vector2(23, 85)
+light_path = NodePath("../../Light_grp/PointLight2D_sdb")
+player_path = NodePath("../../player")
+
+[node name="inter2" parent="Node2D" instance=ExtResource("5_tywyi")]
+position = Vector2(23, -99)
+light_path = NodePath("../../Light_grp/PointLight2D_wc")
+player_path = NodePath("../../player")
+
+[node name="inter4" parent="Node2D" instance=ExtResource("5_tywyi")]
+position = Vector2(-178, -95)
+light_path = NodePath("../../Light_grp/salle principal")
+player_path = NodePath("../../player")
+
+[node name="Light_grp" type="Node2D" parent="."]
+
+[node name="PointLight2D_lamp" type="PointLight2D" parent="Light_grp"]
+position = Vector2(-127, -236)
+color = Color(1, 1, 0.431373, 1)
+shadow_enabled = true
+texture = ExtResource("1_loaid")
+texture_scale = 1.89
+
+[node name="windows" type="Node2D" parent="Light_grp"]
+
+[node name="PointLight2D_windows_int" type="PointLight2D" parent="Light_grp/windows"]
+position = Vector2(-187, -152)
+color = Color(1, 1, 0.431373, 1)
+shadow_enabled = true
+texture = ExtResource("1_loaid")
+texture_scale = 1.89
+
+[node name="PointLight2D_windows_int2" type="PointLight2D" parent="Light_grp/windows"]
+position = Vector2(-186, 45)
+color = Color(1, 1, 0.431373, 1)
+shadow_enabled = true
+texture = ExtResource("1_loaid")
+texture_scale = 1.89
+
+[node name="PointLight2D2_windows" type="PointLight2D" parent="Light_grp/windows"]
+position = Vector2(-179, -149)
+shadow_enabled = true
+texture = ExtResource("3_518sa")
+texture_scale = 3.0
+
+[node name="PointLight2D2_windows2" type="PointLight2D" parent="Light_grp/windows"]
+position = Vector2(-179, 49)
+shadow_enabled = true
+texture = ExtResource("3_518sa")
+texture_scale = 3.0
+
+[node name="PointLight2D_wc" type="PointLight2D" parent="Light_grp"]
+position = Vector2(103, -65)
+enabled = false
+shadow_enabled = true
+shadow_item_cull_mask = 2
+texture = ExtResource("1_loaid")
+texture_scale = 4.0
+
+[node name="PointLight2D_sdb" type="PointLight2D" parent="Light_grp"]
+position = Vector2(100, 62)
+enabled = false
+shadow_enabled = true
+shadow_item_cull_mask = 2
+texture = ExtResource("1_loaid")
+texture_scale = 4.0
+
+[node name="salle principal" type="Node2D" parent="Light_grp"]
+script = ExtResource("6_ue1c4")
+
+[node name="PointLight2D_sp" type="PointLight2D" parent="Light_grp/salle principal"]
+position = Vector2(-72, 53)
+shadow_enabled = true
+shadow_item_cull_mask = 2
+texture = ExtResource("1_loaid")
+texture_scale = 3.0
+
+[node name="PointLight2D_sp3" type="PointLight2D" parent="Light_grp/salle principal"]
+position = Vector2(-84, -54)
+shadow_enabled = true
+shadow_item_cull_mask = 2
+texture = ExtResource("1_loaid")
+texture_scale = 3.0
+
+[node name="PointLight2D_sp4" type="PointLight2D" parent="Light_grp/salle principal"]
+position = Vector2(99, -186)
+shadow_enabled = true
+shadow_item_cull_mask = 2
+texture = ExtResource("1_loaid")
+texture_scale = 3.0
+
+[node name="PointLight2D_sp2" type="PointLight2D" parent="Light_grp/salle principal"]
+position = Vector2(-91, -193)
+shadow_enabled = true
+shadow_item_cull_mask = 2
+texture = ExtResource("1_loaid")
+texture_scale = 3.0
+
+[node name="player" parent="." instance=ExtResource("4_v1d0a")]
+position = Vector2(-26, -220)
+rotation = 1.64323
+
+[node name="Change_scene" parent="." instance=ExtResource("6_ic550")]
+position = Vector2(185, -178)
+next_scene = "res://Scenes/Game/map/rez_de_chaussee_riviera_hotel.tscn"
+player_path = NodePath("../player")
