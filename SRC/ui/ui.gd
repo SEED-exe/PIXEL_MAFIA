@@ -39,8 +39,11 @@ func _on_line_edit_commandeline_text_submitted(new_text: String) -> void:
 		label_response.text = "set quest index to " + input_quest_index
 		debug_quest.text = "index quest : " + input_quest_index
 		print("Numéro de quête :", input_quest_index)
-		Globalvar.quest_index = input_quest_index
+		var to_int = input_quest_index.to_int()
+		Globalvar.change_quest(to_int)
 
 	if new_text == "reload scene":
 		get_tree().reload_current_scene()
+	else:
+		print("mauvaise commande !")
 

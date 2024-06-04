@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bf4lguyr8af3l"]
+[gd_scene load_steps=15 format=3 uid="uid://bf4lguyr8af3l"]
 
 [ext_resource type="Texture2D" uid="uid://dasu53w24rpg4" path="res://Assets/Sprites/maps/TGRH.png" id="1_50ew8"]
 [ext_resource type="Script" path="res://SRC/map/rez_de_chaussee_riviera_hotel.gd" id="1_e80ge"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://1jikhyomecc6" path="res://Assets/Sprites/maps/ascenseur ouvert.png" id="4_rc5o1"]
 [ext_resource type="Texture2D" uid="uid://du6q86lijuakb" path="res://Assets/Sprites/maps/ascenseur porte.png" id="5_jbvwu"]
 [ext_resource type="PackedScene" uid="uid://0847wf6r5v84" path="res://Scenes/Game/marqueur/quest_marqeur.tscn" id="6_l7g50"]
+[ext_resource type="Script" path="res://SRC/PNJ/PNJ.gd" id="7_ok0ap"]
+[ext_resource type="Texture2D" uid="uid://co8iact10o0wx" path="res://Assets/Sprites/Character/Vinnie/Vinnie.png" id="8_csflj"]
+[ext_resource type="FontFile" uid="uid://dkd6crutoiue7" path="res://Assets/Font/I-pixel-u.ttf" id="9_ffvyb"]
 
 [sub_resource type="Environment" id="Environment_xcf3q"]
 background_mode = 3
@@ -97,12 +100,33 @@ libraries = {
 
 [node name="Quest_marqeur" parent="." instance=ExtResource("6_l7g50")]
 modulate = Color(1, 0.0166667, 0, 1)
-position = Vector2(-152, -179)
-player_path = NodePath("../player")
-lunch_dialog = true
-dialogue_name = "Scene2"
-actual_quest_index = 1
+current_quest_to_show = 1
+
+[node name="Quest_marqeur2" parent="." instance=ExtResource("6_l7g50")]
+modulate = Color(1, 0.0166667, 0, 1)
+position = Vector2(0, 501)
+current_quest_to_show = 2
 
 [node name="player" parent="." instance=ExtResource("1_tchk6")]
 position = Vector2(-220, -587)
 rotation = 1.57079
+
+[node name="PNJ" type="CharacterBody2D" parent="."]
+script = ExtResource("7_ok0ap")
+player_path = NodePath("../player")
+
+[node name="Vinnie" type="Sprite2D" parent="PNJ"]
+texture = ExtResource("8_csflj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PNJ"]
+
+[node name="Sprite2D" type="Sprite2D" parent="PNJ"]
+
+[node name="Label_e_to_talk" type="Label" parent="PNJ"]
+visible = false
+offset_left = -50.0
+offset_top = -55.0
+offset_right = 52.0
+offset_bottom = -32.0
+theme_override_fonts/font = ExtResource("9_ffvyb")
+text = "E pour parler"

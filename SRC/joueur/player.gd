@@ -22,12 +22,12 @@ func _ready():
 	animation_player_arrow.play("idle_arrow")
 	
 func _physics_process(delta):
-	
 	var marqueur = get_tree().get_nodes_in_group("marqueur")
 	if marqueur.size() > 0:
-		arrow_player.visible = true
-		if arrow_player.visible == false:
+		
+		if !arrow_player.visible:
 			animation_player_arrow.play_backwards("fade")
+			arrow_player.visible = true
 		if is_instance_valid(marqueur[0]):
 			arrow_player.look_at(marqueur[0].global_position)
 	else:

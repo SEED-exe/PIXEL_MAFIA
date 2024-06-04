@@ -15,6 +15,7 @@ var player = null
 func _ready():
 	light = get_node(light_path)
 	player = get_node(player_path)
+	
 
 func _physics_process(delta):
 	var dist = player.global_position.distance_to(global_position)

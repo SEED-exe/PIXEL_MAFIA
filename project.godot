@@ -30,7 +30,8 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "Scene01": "res://addons/dialogic/Timeline/Scene01.dtl",
-"Scene2": "res://addons/dialogic/Timeline/Scene2.dtl"
+"Scene2": "res://addons/dialogic/Timeline/Scene2.dtl",
+"Vinnierng": "res://addons/dialogic/Timeline/Vinnierng.dtl"
 }
 variables={
 "city_name": "",

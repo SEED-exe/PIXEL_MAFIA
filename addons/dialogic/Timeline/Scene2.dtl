@@ -6,10 +6,6 @@ player: Salut, Vinnie !
 player: Ça fait combien de temps qu’on ne s’est pas vue ?
 Vinnie: Depuis New York ?
 Vinnie: Ça doit bien faire deux ou trois ans.
-player: Ah oui je vois, d'ailleurs c’était avec qui que tu te disputer ?
-Vinnie: C’est Gianna, je te la présenterais une prochain fois.
-Vinnie: On dirais pas comme ça mais elle a du caractère.
-player: Ouais, bon si tu veux.
 player: Tu m'as dit que t’avais un contact avec qui je pourrais faire affaire ici a {city_name} ?
 Vinnie: Ouais, le travail est simple.
 Vinnie: Tu dois trouver un gars et le passé à tabac, il aurait apparemment dragué la fille son supérieur.
@@ -20,11 +16,11 @@ Vinnie: C’est Antonio Romano, c’est un soldat sous les ordres d’un Caporeg
 Vinnie: Ils font tous partie de la Famille Marino tenu par le don Giovanni Marino.
 player: Je vois, si je fais affaire avec lui, il pourrait être utile plus tard pour m’introduire auprès du don.
 Vinnie: C’est toi qui vois {player_name}, personnellement je préfère avoir uniquement des intérêts communs avec eux.
-Vinnie: Il me paye et je m’occupe de trouver les Cadillac Fleetwood pour tout leur soldat.
 player: Je vois, mais j’imagine que les voiture ne sont pas tout ce qu’ils font ?
-Vinnie: Bien sûr que non. 
-Vinnie: Le don Marino c’est expertiser dans l’extorsion de protection, il partage leur bille avec une autre famille dans le prêt usuraire, est blanchisse tout ça grâce aux casinos de la ville. 
-Vinnie: Bref on parlera de ça plus tard. 
-Vinnie: On a rendez-vous a Fairview Gardens Park pour le rencontrer. 
-player: Ok je te rejoins là-bas. 
+Vinnie: Bien sûr que non.
+Vinnie: Le don Marino c’est expertiser dans l’extorsion de protection, il partage leur bille avec une autre famille dans le prêt usuraire, est blanchisse tout ça grâce aux casinos de la ville.
+Vinnie: Bref on parlera de ça plus tard.
+Vinnie: On a rendez-vous a Fairview Gardens Park pour le rencontrer.
+player: Ok je te rejoins là-bas.
+[signal arg="exit_dialogue"]
 [signal arg="exit_scene_2"]
