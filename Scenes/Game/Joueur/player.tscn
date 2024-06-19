@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://do4x8384jue0f"]
+[gd_scene load_steps=20 format=3 uid="uid://do4x8384jue0f"]
 
 [ext_resource type="Script" path="res://SRC/joueur/player.gd" id="1_qh8vs"]
+[ext_resource type="Texture2D" uid="uid://cfhmnc4sxk2e2" path="res://Assets/Sprites/hand.png" id="2_0blbc"]
 [ext_resource type="Texture2D" uid="uid://dkjfibm7nl88n" path="res://Assets/Sprites/player/bas.png" id="2_aapp5"]
 [ext_resource type="Texture2D" uid="uid://08r3h047dyay" path="res://Assets/Sprites/player/haut.png" id="3_5ac7q"]
 [ext_resource type="Texture2D" uid="uid://duq4ocuhasolc" path="res://Assets/Sprites/player/cheveux.png" id="4_pds0x"]
@@ -8,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bdamc6xhytlvn" path="res://Assets/Sprites/player/walk.png" id="6_jnj4p"]
 [ext_resource type="PackedScene" uid="uid://dsjyju6r77bim" path="res://Scenes/Menu/ui.tscn" id="7_vt7ti"]
 [ext_resource type="Texture2D" uid="uid://bajpq40q21f1n" path="res://Assets/Sprites/player/arrow player.png" id="8_15lfp"]
+[ext_resource type="Texture2D" uid="uid://c4b20ccqh2r4d" path="res://Assets/Sprites/weapon/pistol/pistol.png" id="9_otxmg"]
 
 [sub_resource type="Animation" id="Animation_edls7"]
 length = 0.001
@@ -187,10 +189,34 @@ texture = ExtResource("5_778ex")
 texture = ExtResource("6_jnj4p")
 vframes = 5
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="weapon_arm" type="Node2D" parent="Sprite_grp"]
+
+[node name="Hand" type="Sprite2D" parent="Sprite_grp/weapon_arm"]
+position = Vector2(15, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_0blbc")
+
+[node name="Hand2" type="Sprite2D" parent="Sprite_grp/weapon_arm"]
+position = Vector2(14, 3)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_0blbc")
+
+[node name="Pistol" type="Sprite2D" parent="Sprite_grp/weapon_arm"]
+position = Vector2(19, 2)
+rotation = 1.57079
+texture = ExtResource("9_otxmg")
+
+[node name="RayCast2D_shoot" type="RayCast2D" parent="Sprite_grp"]
+target_position = Vector2(1100, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite_grp"]
 polygon = PackedVector2Array(-8, -15, -2, -19, 2, -19, 4, -16, 4, 16, 2, 19, -2, 19, -8, 15)
 
 [node name="UI" parent="." instance=ExtResource("7_vt7ti")]
 
 [node name="ArrowPlayer" type="Sprite2D" parent="."]
 texture = ExtResource("8_15lfp")
+
+[node name="Sound" type="Node" parent="."]
+
+[node name="AudioStreamPlayer_reload" type="AudioStreamPlayer" parent="Sound"]

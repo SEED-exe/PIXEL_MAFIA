@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwp41io6kwg01"]
+
+[ext_resource type="Texture2D" uid="uid://cxkdhuklegtsy" path="res://Assets/NEw pack blood/1/1_7.png" id="1_xd21n"]
+[ext_resource type="Script" path="res://Scenes/Game/particule/cpu_particles_2d_blood.gd" id="2_g2vjk"]
+
+[sub_resource type="Gradient" id="Gradient_tuxsp"]
+offsets = PackedFloat32Array(0, 0.00847458, 0.977401, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 0, 0, 1, 0.403903, 8.42288e-07, 9.62615e-08, 1, 0.431373, 0, 0, 0)
+
+[node name="CPUParticles2D_blood" type="CPUParticles2D"]
+z_index = -1
+emitting = false
+amount = 4
+lifetime = 60.0
+one_shot = true
+explosiveness = 1.0
+local_coords = true
+texture = ExtResource("1_xd21n")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+linear_accel_min = -300.0
+damping_min = 100.0
+damping_max = 100.0
+scale_amount_min = 0.1
+scale_amount_max = 0.3
+color_ramp = SubResource("Gradient_tuxsp")
+script = ExtResource("2_g2vjk")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

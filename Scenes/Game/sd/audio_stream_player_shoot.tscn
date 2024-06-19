@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dx1triihrtsci"]
+
+[ext_resource type="Script" path="res://Scenes/Game/sd/audio_stream_player_shoot.gd" id="1_n8tbx"]
+
+[node name="AudioStreamPlayer_shoot" type="AudioStreamPlayer"]
+bus = &"SFX"
+script = ExtResource("1_n8tbx")

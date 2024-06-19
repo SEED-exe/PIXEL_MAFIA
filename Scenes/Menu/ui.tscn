@@ -1,8 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsjyju6r77bim"]
+[gd_scene load_steps=13 format=3 uid="uid://dsjyju6r77bim"]
 
 [ext_resource type="Script" path="res://SRC/ui/ui.gd" id="1_gdufq"]
 [ext_resource type="FontFile" uid="uid://fwbfbpyutg3x" path="res://Assets/Font/the-godfather.regular.ttf" id="2_l65f8"]
 [ext_resource type="FontFile" uid="uid://cb8htn1un8pj6" path="res://Assets/Font/cmuntt.ttf" id="3_enrmc"]
+[ext_resource type="Texture2D" uid="uid://pqgh6uduhrr4" path="res://Assets/Sprites/ui/pistol_ui/pistol_normal.png" id="4_68pl3"]
+[ext_resource type="Texture2D" uid="uid://c0q24x2mlaul0" path="res://Assets/Sprites/ui/rooue.png" id="4_edwq1"]
+[ext_resource type="Texture2D" uid="uid://dx488eqwbak63" path="res://Assets/Sprites/ui/pistol_ui/pistol_selected.png" id="5_wepdw"]
+[ext_resource type="Texture2D" uid="uid://dmsbmqwl3kuhy" path="res://Assets/Sprites/ui/pistol_ui/pistol_hovered.png" id="6_5oaoa"]
+[ext_resource type="BitMap" uid="uid://2sbs3e13uuqf" path="res://Assets/Sprites/ui/pistol_ui/pistol_bitmask.png" id="7_e4up3"]
+[ext_resource type="Texture2D" uid="uid://bpgmbsbhcvmuv" path="res://Assets/Sprites/ui/pistol_ui/pistol.png" id="8_qs6bd"]
 
 [sub_resource type="Animation" id="Animation_qpqlo"]
 length = 0.001
@@ -42,7 +48,26 @@ _data = {
 }
 
 [node name="UI" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_gdufq")
+
+[node name="info" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label_ninemm_ammo2" type="Label" parent="info"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 32.0
+offset_right = 152.0
+offset_bottom = 75.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("3_enrmc")
+theme_override_font_sizes/font_size = 33
+text = "33 x 33"
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 1
@@ -132,5 +157,50 @@ layout_mode = 2
 
 [node name="LineEdit_commandeline" type="LineEdit" parent="CheatBox/VBoxContainer"]
 layout_mode = 2
+
+[node name="Interactive_wheel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureButton_pistol" type="TextureButton" parent="Interactive_wheel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("4_68pl3")
+texture_pressed = ExtResource("5_wepdw")
+texture_hover = ExtResource("6_5oaoa")
+texture_click_mask = ExtResource("7_e4up3")
+
+[node name="TextureRect" type="TextureRect" parent="Interactive_wheel/TextureButton_pistol"]
+layout_mode = 0
+offset_left = 1002.0
+offset_top = 214.0
+offset_right = 1514.0
+offset_bottom = 726.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_qs6bd")
+
+[node name="Label_ninemm_ammo" type="Label" parent="Interactive_wheel/TextureButton_pistol"]
+layout_mode = 0
+offset_left = 978.0
+offset_top = 302.0
+offset_right = 1097.0
+offset_bottom = 345.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("3_enrmc")
+theme_override_font_sizes/font_size = 33
+text = "33 x 33"
+
+[node name="TextureRect" type="TextureRect" parent="Interactive_wheel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("4_edwq1")
 
 [connection signal="text_submitted" from="CheatBox/VBoxContainer/LineEdit_commandeline" to="." method="_on_line_edit_commandeline_text_submitted"]

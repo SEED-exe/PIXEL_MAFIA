@@ -1,5 +1,8 @@
 extends Node
 
+
+
+
 #QUEST VAR
 var quest_name : String
 var quest_index : int

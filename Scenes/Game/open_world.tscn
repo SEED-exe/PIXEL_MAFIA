@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://kfhtn3b1nn0y"]
+[gd_scene load_steps=13 format=3 uid="uid://kfhtn3b1nn0y"]
 
 [ext_resource type="Texture2D" uid="uid://dqobdki4qsurq" path="res://Assets/Sprites/Tile/offroad/offroad.png" id="1_0g8we"]
 [ext_resource type="Texture2D" uid="uid://u6rgl0kpbwfa" path="res://Assets/Sprites/Tile/routecoin.png" id="1_cu6xn"]
@@ -9,13 +9,21 @@
 [ext_resource type="Texture2D" uid="uid://s7rgcnly0ynx" path="res://Assets/Sprites/Tile/offroad/offroad_line_corner.png" id="5_j5vnp"]
 [ext_resource type="Texture2D" uid="uid://b5rt6xa5ugl6o" path="res://Assets/Sprites/maps/ext/casino ext.png" id="5_r2s2w"]
 [ext_resource type="Texture2D" uid="uid://3nu17l1osfdp" path="res://Assets/Sprites/Tile/offroad/offroad_line.png" id="6_c3iap"]
+[ext_resource type="PackedScene" uid="uid://b66uvoq8fbxu" path="res://Scenes/Game/AI/ai_enemy.tscn" id="10_h2sjh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dvb3w"]
 size = Vector2(768, 1088)
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_0mllh"]
+vertices = PackedVector2Array(298, 632, 314, 1275, 6, 1238, -28, 576, -1282, -949, 1860, -976, 1876, 626, -1282, 580)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 0, 3), PackedInt32Array(4, 3, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-37, 586, -3, 1247, 325, 1287, 308, 642, 1887, 636, 1870, -987, -1292, -959, -1292, 591)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
 [node name="Open_world" type="Node2D"]
 
 [node name="offroad_grp" type="Node2D" parent="."]
+z_index = -2
 
 [node name="Offroad13" type="Sprite2D" parent="offroad_grp"]
 position = Vector2(-1120, 480)
@@ -158,6 +166,7 @@ position = Vector2(1120, -800)
 texture = ExtResource("1_0g8we")
 
 [node name="Route_grp" type="Node2D" parent="."]
+z_index = -2
 
 [node name="RouteT" type="Sprite2D" parent="Route_grp"]
 position = Vector2(160, 480)
@@ -234,6 +243,7 @@ position = Vector2(1760, 160)
 texture = ExtResource("1_qlwch")
 
 [node name="OffroadLine_grp" type="Node2D" parent="."]
+z_index = -2
 position = Vector2(-160, 160)
 
 [node name="OffroadLineCorner2" type="Sprite2D" parent="OffroadLine_grp"]
@@ -352,3 +362,12 @@ texture = ExtResource("5_r2s2w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TGRH"]
 shape = SubResource("RectangleShape2D_dvb3w")
+
+[node name="AI_enemy" parent="." instance=ExtResource("10_h2sjh")]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_0mllh")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+position = Vector2(-6, -15)
+vertices = PackedVector2Array(-330, -767.97, -355, 328, -1057, 324, -1085, -777)

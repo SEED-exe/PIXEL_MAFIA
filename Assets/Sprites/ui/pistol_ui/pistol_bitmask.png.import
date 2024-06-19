@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://2sbs3e13uuqf"
+path="res://.godot/imported/pistol_bitmask.png-1cba38f8b56920e9b01b6c2c71c1c6db.res"
+
+[deps]
+
+source_file="res://Assets/Sprites/ui/pistol_ui/pistol_bitmask.png"
+dest_files=["res://.godot/imported/pistol_bitmask.png-1cba38f8b56920e9b01b6c2c71c1c6db.res"]
+
+[params]
+
+create_from=0
+threshold=0.5
