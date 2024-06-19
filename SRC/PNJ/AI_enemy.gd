@@ -2,18 +2,29 @@ extends CharacterBody2D
 
 const CPU_PARTICLES_2D_BLOOD = preload("res://Scenes/Game/particule/cpu_particles_2d_blood.tscn")
 
-var hp_max = 100
+@export var hp_max = 100
 var current_hp = 100
 
 var invincible_frame = false
 
-var speed = 140
-var accel = 5
+@export var speed = 140
+@export var accel = 5
 
 @onready var nav : NavigationAgent2D = $NavigationAgent2D
 
 var player_grp = null
 var player = null
+
+#STATE#
+
+var search = false
+var gard = false
+var chase = false
+
+func _init():
+	current_hp = hp_max
+
+
 func _ready():
 	player_grp = get_tree().get_nodes_in_group("player")
 	player = player_grp[0]
