@@ -14,10 +14,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dvb3w"]
 size = Vector2(768, 1088)
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_0mllh"]
-vertices = PackedVector2Array(298, 632, 314, 1275, 6, 1238, -28, 576, -1282, -949, 1860, -976, 1876, 626, -1282, 580)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 0, 3), PackedInt32Array(4, 3, 7)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-37, 586, -3, 1247, 325, 1287, 308, 642, 1887, 636, 1870, -987, -1292, -959, -1292, 591)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_rmqbp"]
+vertices = PackedVector2Array(1910, -950, 1910, 630, 302, 630, 10, 622, -302, 330, -310, -778, -1270, -950, -1098, -778, -1262, 629, -1098, 330, 10, 1270, 310, 1270)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(6, 0, 5, 7), PackedInt32Array(8, 6, 7, 9), PackedInt32Array(3, 8, 9, 4), PackedInt32Array(10, 3, 2, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1272, 640, 0, 632, 0, 1280, 320, 1280, 312, 640, 1920, 640, 1920, -960, -1280, -960, -1088, -768, -320, -768, -312, 320, -1088, 320, -1088, -768, -1280, -960)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Open_world" type="Node2D"]
@@ -351,9 +351,6 @@ texture = ExtResource("6_c3iap")
 position = Vector2(0, -320)
 texture = ExtResource("6_c3iap")
 
-[node name="player" parent="." instance=ExtResource("2_8gijq")]
-position = Vector2(64, 32)
-
 [node name="TGRH" type="StaticBody2D" parent="."]
 position = Vector2(-704, -224)
 
@@ -363,11 +360,14 @@ texture = ExtResource("5_r2s2w")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TGRH"]
 shape = SubResource("RectangleShape2D_dvb3w")
 
-[node name="AI_enemy" parent="." instance=ExtResource("10_h2sjh")]
-
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-navigation_polygon = SubResource("NavigationPolygon_0mllh")
+navigation_polygon = SubResource("NavigationPolygon_rmqbp")
 
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
-position = Vector2(-6, -15)
-vertices = PackedVector2Array(-330, -767.97, -355, 328, -1057, 324, -1085, -777)
+[node name="AI_enemy" parent="." instance=ExtResource("10_h2sjh")]
+position = Vector2(-84, -128)
+
+[node name="AI_enemy2" parent="." instance=ExtResource("10_h2sjh")]
+position = Vector2(-112, -200)
+
+[node name="player" parent="." instance=ExtResource("2_8gijq")]
+position = Vector2(64, 32)

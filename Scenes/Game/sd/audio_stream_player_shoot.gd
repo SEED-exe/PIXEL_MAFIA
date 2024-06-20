@@ -1,4 +1,4 @@
-extends AudioStreamPlayer
+extends AudioStreamPlayer2D
 
 
 const _9_MM_PISTOL_SHOOT_SHORT_REVERB_7152 = preload("res://Assets/Audio/SFX/9mm/9mm-pistol-shoot-short-reverb-7152.mp3")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://do4x8384jue0f"]
+[gd_scene load_steps=22 format=3 uid="uid://do4x8384jue0f"]
 
 [ext_resource type="Script" path="res://SRC/joueur/player.gd" id="1_qh8vs"]
 [ext_resource type="Texture2D" uid="uid://cfhmnc4sxk2e2" path="res://Assets/Sprites/hand.png" id="2_0blbc"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://bdamc6xhytlvn" path="res://Assets/Sprites/player/walk.png" id="6_jnj4p"]
 [ext_resource type="PackedScene" uid="uid://dsjyju6r77bim" path="res://Scenes/Menu/ui.tscn" id="7_vt7ti"]
 [ext_resource type="Texture2D" uid="uid://bajpq40q21f1n" path="res://Assets/Sprites/player/arrow player.png" id="8_15lfp"]
+[ext_resource type="Texture2D" uid="uid://s67uamkvnqqf" path="res://Assets/Sprites/weapon/pistol/muzzleflash.png" id="8_mc4eo"]
+[ext_resource type="Texture2D" uid="uid://bjuyu7o81wust" path="res://Assets/Sprites/Light/light_point.png" id="9_eeclk"]
 [ext_resource type="Texture2D" uid="uid://c4b20ccqh2r4d" path="res://Assets/Sprites/weapon/pistol/pistol.png" id="9_otxmg"]
 
 [sub_resource type="Animation" id="Animation_edls7"]
@@ -144,10 +146,13 @@ _data = {
 }
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_r3l08"]
-polygon = PackedVector2Array(-8, -15, -8, 15, -2, 19, 2, 19, 4, 16, 4, -16, 2, -19, -2, -19)
+polygon = PackedVector2Array(-3, -11, -4, 3, -2, 12, 0, 14, 2, 13, 2, 1, 2, -10, 2, -14, 0, -17, -2, -15)
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_qh8vs")
+
+[node name="CollisionPolygon2D_corp" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-8, -15, -2, -19, 2, -19, 4, -16, 5, -6, 6, 5, 4, 16, 2, 19, -2, 19, -8, 15)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.8, 1.8)
@@ -201,6 +206,20 @@ position = Vector2(14, 3)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_0blbc")
 
+[node name="Muzzleflash" type="Sprite2D" parent="Sprite_grp/weapon_arm"]
+visible = false
+position = Vector2(33, 3)
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("8_mc4eo")
+
+[node name="MuzzleLight" type="PointLight2D" parent="Sprite_grp/weapon_arm/Muzzleflash"]
+position = Vector2(0, 22.2222)
+color = Color(1, 1, 0, 1)
+energy = 3.0
+shadow_enabled = true
+texture = ExtResource("9_eeclk")
+texture_scale = 8.0
+
 [node name="Pistol" type="Sprite2D" parent="Sprite_grp/weapon_arm"]
 position = Vector2(19, 2)
 rotation = 1.57079
@@ -208,9 +227,6 @@ texture = ExtResource("9_otxmg")
 
 [node name="RayCast2D_shoot" type="RayCast2D" parent="Sprite_grp"]
 target_position = Vector2(1100, 0)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite_grp"]
-polygon = PackedVector2Array(-8, -15, -2, -19, 2, -19, 4, -16, 4, 16, 2, 19, -2, 19, -8, 15)
 
 [node name="UI" parent="." instance=ExtResource("7_vt7ti")]
 
