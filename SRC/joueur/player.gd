@@ -96,7 +96,7 @@ func _input(event):
 			if ray_cast_2d_shoot.get_collider():
 				var collide = ray_cast_2d_shoot.get_collider()
 				if collide.is_in_group("attackable"):
-					collide.damage(10)
+					collide.damage(10,self)
 			await get_tree().create_timer(0.1).timeout
 			muzzleflash.visible = false
 			await get_tree().create_timer(0.5).timeout
@@ -113,8 +113,8 @@ func update_Quest_line(index_quest):
 	ui.update_Quest_line()
 
 
-func damage(_damage):
-	print(_damage)
+func damage(_damage,who):
+	print(_damage,who)
 	var blood_spread = CPU_PARTICLES_2D_BLOOD.instantiate()
 	get_parent().add_child(blood_spread)
 	blood_spread.global_position = global_position

@@ -226,7 +226,7 @@ rotation = 1.57079
 texture = ExtResource("9_otxmg")
 
 [node name="RayCast2D_shoot" type="RayCast2D" parent="Sprite_grp"]
-target_position = Vector2(1100, 0)
+target_position = Vector2(900, 0)
 
 [node name="UI" parent="." instance=ExtResource("7_vt7ti")]
 

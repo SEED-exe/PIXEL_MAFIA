@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://s7rgcnly0ynx" path="res://Assets/Sprites/Tile/offroad/offroad_line_corner.png" id="5_j5vnp"]
 [ext_resource type="Texture2D" uid="uid://b5rt6xa5ugl6o" path="res://Assets/Sprites/maps/ext/casino ext.png" id="5_r2s2w"]
 [ext_resource type="Texture2D" uid="uid://3nu17l1osfdp" path="res://Assets/Sprites/Tile/offroad/offroad_line.png" id="6_c3iap"]
-[ext_resource type="PackedScene" uid="uid://b66uvoq8fbxu" path="res://Scenes/Game/AI/ai_enemy.tscn" id="10_h2sjh"]
+[ext_resource type="PackedScene" uid="uid://b66uvoq8fbxu" path="res://Scenes/Game/AI/AI_ENEMY.tscn" id="10_vcxww"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dvb3w"]
 size = Vector2(768, 1088)
@@ -361,13 +361,26 @@ texture = ExtResource("5_r2s2w")
 shape = SubResource("RectangleShape2D_dvb3w")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.235294)
 navigation_polygon = SubResource("NavigationPolygon_rmqbp")
 
-[node name="AI_enemy" parent="." instance=ExtResource("10_h2sjh")]
-position = Vector2(-84, -128)
-
-[node name="AI_enemy2" parent="." instance=ExtResource("10_h2sjh")]
-position = Vector2(-112, -200)
-
 [node name="player" parent="." instance=ExtResource("2_8gijq")]
-position = Vector2(64, 32)
+position = Vector2(340, 144)
+
+[node name="AI_ENEMY7" parent="." instance=ExtResource("10_vcxww")]
+position = Vector2(-280, 112)
+rotation = 0.261799
+Famille = 2
+
+[node name="AI_ENEMY9" parent="." instance=ExtResource("10_vcxww")]
+position = Vector2(-776, 392)
+rotation = 0.261799
+
+[node name="AI_ENEMY10" parent="." instance=ExtResource("10_vcxww")]
+position = Vector2(-792, 464)
+rotation = -0.261799
+
+[node name="AI_ENEMY8" parent="." instance=ExtResource("10_vcxww")]
+position = Vector2(-280, 29)
+rotation = -0.523598
+Famille = 2

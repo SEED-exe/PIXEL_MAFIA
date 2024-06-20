@@ -1,20 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://b66uvoq8fbxu"]
+[gd_scene load_steps=7 format=3 uid="uid://b66uvoq8fbxu"]
 
-[ext_resource type="Script" path="res://SRC/PNJ/AI_enemy.gd" id="1_qv5q7"]
-[ext_resource type="Texture2D" uid="uid://cfhmnc4sxk2e2" path="res://Assets/Sprites/hand.png" id="3_0y5vq"]
-[ext_resource type="Texture2D" uid="uid://co8iact10o0wx" path="res://Assets/Sprites/Character/Vinnie/Vinnie.png" id="3_5cooc"]
-[ext_resource type="Texture2D" uid="uid://s67uamkvnqqf" path="res://Assets/Sprites/weapon/pistol/muzzleflash.png" id="4_67q67"]
-[ext_resource type="Texture2D" uid="uid://c4b20ccqh2r4d" path="res://Assets/Sprites/weapon/pistol/pistol.png" id="4_ey6hk"]
-[ext_resource type="Texture2D" uid="uid://bjuyu7o81wust" path="res://Assets/Sprites/Light/light_point.png" id="5_goe28"]
+[ext_resource type="Script" path="res://SRC/PNJ/AI_enemy.gd" id="1_fceaq"]
+[ext_resource type="Texture2D" uid="uid://cfhmnc4sxk2e2" path="res://Assets/Sprites/hand.png" id="2_proc4"]
+[ext_resource type="Texture2D" uid="uid://s67uamkvnqqf" path="res://Assets/Sprites/weapon/pistol/muzzleflash.png" id="3_jcec7"]
+[ext_resource type="Texture2D" uid="uid://bjuyu7o81wust" path="res://Assets/Sprites/Light/light_point.png" id="4_guypo"]
+[ext_resource type="Texture2D" uid="uid://c4b20ccqh2r4d" path="res://Assets/Sprites/weapon/pistol/pistol.png" id="5_thra3"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_aco41"]
 polygon = PackedVector2Array(0, -14, 0, -9, 0, -1, 0, 11, -1, 14, -5, 14, -6, 10, -6, -13, -4, -16, -2, -16)
 
-[node name="AI_enemy" type="CharacterBody2D" groups=["attackable"]]
-script = ExtResource("1_qv5q7")
+[node name="AI_ENEMY" type="CharacterBody2D" groups=["attackable"]]
+script = ExtResource("1_fceaq")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("3_5cooc")
+[node name="CORP_sprite" type="Sprite2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(0, 17, 3, 15, 3, 7, 2, 6, 7, 2, 7, -3, 3, -7, 3, -15, -1, -17, -5, -17, -8, -15, -8, -6, -8, 8, -8, 15, -5, 17, -2, 18)
@@ -22,7 +20,9 @@ polygon = PackedVector2Array(0, 17, 3, 15, 3, 7, 2, 6, 7, 2, 7, -3, 3, -7, 3, -1
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
 
-[node name="debug" type="Label" parent="."]
+[node name="label_arm" type="Node2D" parent="."]
+
+[node name="debug" type="Label" parent="label_arm"]
 offset_left = -20.0
 offset_top = -64.0
 offset_right = 20.0
@@ -39,8 +39,7 @@ self_modulate = Color(1, 1, 0, 1)
 target_position = Vector2(0, 0)
 
 [node name="RayCast2D_vision" type="RayCast2D" parent="Raycast"]
-modulate = Color(1, 1, 1, 0)
-target_position = Vector2(1100, 0)
+target_position = Vector2(900, 0)
 
 [node name="TIMER" type="Node" parent="."]
 
@@ -53,6 +52,9 @@ autostart = true
 
 [node name="Timer_shoot" type="Timer" parent="TIMER"]
 
+[node name="Timer_stop_search" type="Timer" parent="TIMER"]
+wait_time = 30.0
+
 [node name="Weapon" type="Node2D" parent="."]
 
 [node name="Pistol" type="Node2D" parent="Weapon"]
@@ -60,31 +62,31 @@ autostart = true
 [node name="Hand" type="Sprite2D" parent="Weapon/Pistol"]
 position = Vector2(9, -2)
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("3_0y5vq")
+texture = ExtResource("2_proc4")
 
 [node name="Hand2" type="Sprite2D" parent="Weapon/Pistol"]
 position = Vector2(11, -1.19209e-07)
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("3_0y5vq")
+texture = ExtResource("2_proc4")
 
 [node name="Muzzleflash" type="Sprite2D" parent="Weapon/Pistol"]
 visible = false
 position = Vector2(26, 0)
 scale = Vector2(0.065, 0.065)
-texture = ExtResource("4_67q67")
+texture = ExtResource("3_jcec7")
 
 [node name="MuzzleLight" type="PointLight2D" parent="Weapon/Pistol/Muzzleflash"]
 position = Vector2(-15.3846, 0)
 color = Color(1, 1, 0, 1)
 energy = 3.0
 shadow_enabled = true
-texture = ExtResource("5_goe28")
+texture = ExtResource("4_guypo")
 texture_scale = 8.0
 
 [node name="Pistol" type="Sprite2D" parent="Weapon/Pistol"]
 position = Vector2(15, -1)
 rotation = 1.57079
-texture = ExtResource("4_ey6hk")
+texture = ExtResource("5_thra3")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_aco41")
@@ -93,3 +95,4 @@ occluder = SubResource("OccluderPolygon2D_aco41")
 [connection signal="timeout" from="TIMER/Timer_couldown_not_see_player" to="." method="_on_timer_couldown_not_see_player_timeout"]
 [connection signal="timeout" from="TIMER/Timer_search" to="." method="_on_timer_search_timeout"]
 [connection signal="timeout" from="TIMER/Timer_shoot" to="." method="_on_timer_shoot_timeout"]
+[connection signal="timeout" from="TIMER/Timer_stop_search" to="." method="_on_timer_stop_search_timeout"]
